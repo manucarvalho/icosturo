@@ -1,0 +1,97 @@
+<h1 mat-dialog-title>Cadastrar</h1>
+<div mat-dialog-content>
+    <form class="form-horizontal" [formGroup]="formUsuario">
+        <div class="form-group"> 
+            <div class="col-sm-12">
+                <label class="control-label">Tipo de perfil</label>
+            </div>          
+            <div class="col-sm-12">
+                <mat-radio-group formControlName="perfil">
+                    <mat-radio-button value="Cliente">Cliente</mat-radio-button>
+                    <mat-radio-button value="Designer">Designer</mat-radio-button>
+                    <mat-radio-button value="Costureiro">Costureiro</mat-radio-button>
+                  </mat-radio-group>
+                <ng-container *ngIf="formUsuario.controls.perfil.touched">
+                    <span *ngIf="formUsuario.controls.perfil.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>
+            </div>        
+        </div>
+    </form>
+    <form class="form-horizontal" [formGroup]="formCadastrar">
+        <div class="form-group"> 
+            <div class="col-sm-12" style="margin-bottom: 7px;">
+                <label for="nome" class="control-label">Nome</label>
+            </div>        
+            <div class="col-sm-12">
+                <input type="text" class="form-control" formControlName="nome" 
+                id="nome" placeholder="Nome" required> 
+                <ng-container *ngIf="formCadastrar.controls.nome.touched">
+                    <span *ngIf="formCadastrar.controls.nome.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>                           
+            </div>        
+        </div>
+        <div class="form-group"> 
+            <div class="col-sm-12" style="margin-bottom: 7px;">
+                <label for="sobrenome" class="control-label">Sobrenome</label>
+            </div>        
+            <div class="col-sm-12">
+                <input type="text" class="form-control" formControlName="sobrenome" 
+                id="sobrenome" placeholder="Sobrenome" required> 
+                <ng-container *ngIf="formCadastrar.controls.sobrenome.touched">
+                    <span *ngIf="formCadastrar.controls.sobrenome.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>                           
+            </div>        
+        </div>
+        <div class="form-group"> 
+            <div class="col-sm-12" style="margin-bottom: 7px;">
+                <label for="telefone" class="control-label">Telefone</label>
+            </div>        
+            <div class="col-sm-12">
+                <input type="text" class="form-control" formControlName="telefone" 
+                id="telefone" placeholder="Telefone" required> 
+                <ng-container *ngIf="formCadastrar.controls.telefone.touched">
+                    <span *ngIf="formCadastrar.controls.telefone.errors">
+                        Campo obrigatório
+                    </span>
+                </ng-container>                           
+            </div>        
+        </div>
+        <div class="form-group"> 
+            <div class="col-sm-12" style="margin-bottom: 7px;">
+                <label for="email" class="control-label">E-mail</label>
+            </div>        
+            <div class="col-sm-12">
+                <input type="text" class="form-control" formControlName="email" 
+                id="email" placeholder="Email" required> 
+                <ng-container *ngIf="formCadastrar.controls.email.touched">
+                    <span *ngIf="formCadastrar.controls.email.invalid">
+                        {{getErrorMessage()}}
+                    </span>
+                </ng-container>                           
+            </div>        
+        </div>
+        <br>
+        <div class="form-group"> 
+            <div class="col-sm-12">
+                <label for="password" class="control-label">Senha</label>
+            </div>        
+            <div class="col-sm-12">
+                <input type="text" class="form-control" formControlName="password" 
+                id="password" placeholder="Senha" required [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>                
+            </div>        
+        </div>        
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" type="submit" (click)="cadastrar(formCadastrar); openConfirmacao()">Salvar</button>
+</div>

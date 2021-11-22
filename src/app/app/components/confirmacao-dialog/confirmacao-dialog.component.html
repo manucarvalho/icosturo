@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Confirmação</h1>
+<div mat-dialog-content>
+    <p>Finalizar cadastro?</p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true" (click)="cadastrarCliente()">Confirmar</button>
+</div>

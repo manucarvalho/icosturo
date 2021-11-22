@@ -1,0 +1,32 @@
+<main>
+    <h2>{{ peca.tipo }} {{ peca.cor }}</h2>
+    <mat-divider></mat-divider>
+    <div class="container">    
+        <div class="col-sm-6">        
+            <br>
+            <br>
+            <h3>Designer {{ usuario.nome }} {{ usuario.sobrenome }}</h3>  
+            <br>
+            <br>          
+            <button mat-flat-button color="warn" (click)="goToCarrinho()">Comprar</button>
+        </div>
+        <span class="example-spacer"></span>
+        <div class="col-sm-6">
+            <mat-card class="mat-card">
+                <img mat-card-xl-image src="{{ peca.imageUm }}" alt="peça de roupa">
+            </mat-card>
+        </div>
+    </div>
+    <h2>Costureiros</h2>
+    <mat-divider></mat-divider>
+    <ul>
+        <li *ngFor="let costureiro of costureiros"> {{ costureiro.usuario.nome }} {{ costureiro.usuario.sobrenome }}</li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</main>

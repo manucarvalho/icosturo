@@ -1,0 +1,29 @@
+<div class="container">
+    <p>Vestidos</p>
+    <mat-divider></mat-divider>
+    <div class="container-img">
+        <ng-container *ngFor="let peca of pecas">
+            <mat-card class="mat-card" *ngIf="peca.tipo == 'Vestido'">
+                <img mat-card-xl-image  src="{{ peca.imageUm }}" alt="peça de roupa" (click)="goToDetalhe(peca)">
+            </mat-card> 
+        </ng-container>      
+    </div>
+    <p>Camisas</p>
+    <mat-divider></mat-divider>
+    <div class="container-img" >
+        <ng-container *ngFor="let peca of pecas">
+            <mat-card class="mat-card" *ngIf="peca.tipo == 'Camisa'" >
+                <img mat-card-xl-image  src="{{ peca.imageUm }}" alt="peça de roupa" (click)="goToDetalhe(peca)">
+            </mat-card>
+        </ng-container>       
+    </div>
+    <p>Calças</p>
+    <mat-divider></mat-divider>
+    <div class="container-img" >
+        <ng-container *ngFor="let peca of pecas">
+            <mat-card class="mat-card" *ngIf="peca.tipo == 'Calça'" >
+                <img mat-card-xl-image  src="{{ peca.imageUm }}" alt="peça de roupa" (click)="goToDetalhe(peca)">
+            </mat-card>
+        </ng-container>       
+    </div>
+</div>
